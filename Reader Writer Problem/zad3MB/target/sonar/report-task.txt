@@ -1,0 +1,6 @@
+projectKey=zadanie3
+serverUrl=http://localhost:9000
+serverVersion=9.9.3.79811
+dashboardUrl=http://localhost:9000/dashboard?id=zadanie3
+ceTaskId=AYzv5dCx9IewppH6vpEO
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYzv5dCx9IewppH6vpEO
