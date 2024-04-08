@@ -20,6 +20,7 @@ Omówienie algorytmu:
 *******************************************************************
 
 Klasa Library:
+```java
 private final Semaphore readSemaphore = new Semaphore(5);
 private final Semaphore writeSemaphore = new Semaphore(1);
 Deklaracja dwóch pól prywatnych typu Semaphore. readSemaphore kontroluje dostęp do operacji czytania, ograniczając jednoczesne czytanie do 5 czytelników. writeSemaphore kontroluje dostęp do operacji pisania, umożliwiając jednoczesne pisanie tylko jednemu pisarzowi.
@@ -64,7 +65,7 @@ public int getWritersCount() {
     return writersCount;
 }
 Metody te zwracają aktualną liczbę czytelników (readersCount) i pisarzy (writersCount) w czytelni.
-
+```
 Klasa Writer:
 private final Library library; - Deklaracja prywatnego pola o nazwie library o typie Library. Pole to przechowuje referencję do obiektu klasy Library i umożliwia dostęp do operacji związanych z czytaniem i pisaniem.
 private final String name; - Deklaracja prywatnego pola o nazwie name o typie String, które przechowuje unikalną nazwę pisarza.
