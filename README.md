@@ -66,6 +66,7 @@ public int getWritersCount() {
 }
 Metody te zwracają aktualną liczbę czytelników (readersCount) i pisarzy (writersCount) w czytelni.
 ```
+```
 Klasa Writer:
 private final Library library; - Deklaracja prywatnego pola o nazwie library o typie Library. Pole to przechowuje referencję do obiektu klasy Library i umożliwia dostęp do operacji związanych z czytaniem i pisaniem.
 private final String name; - Deklaracja prywatnego pola o nazwie name o typie String, które przechowuje unikalną nazwę pisarza.
@@ -113,6 +114,7 @@ Konstruktor klasy Writer przyjmuje dwie wartości: name (nazwa pisarza) i librar
         }
     }
 }
+```
 Metoda run reprezentuje działania pisarza w pętli nieskończonej. Pisarz próbuje uzyskać dostęp do biblioteki poprzez wywołanie library.requestWrite(name),
 a następnie wypisuje informacje dotyczące chęci wejścia do czytelni, liczby pisarzy w czytelni, liczby pisarzy w kolejce itp. Po zakończeniu operacji pisania, pisarz zwalnia zasoby biblioteki i
 przechodzi do stanu oczekiwania na ponowne wejście do czytelni. W międzyczasie generowane są losowe czasy oczekiwania przy użyciu Random i Thread.sleep.
@@ -120,7 +122,7 @@ przechodzi do stanu oczekiwania na ponowne wejście do czytelni. W międzyczasie
 
 Klasa Reader:
 Analogicznie do klasy Writer
-
+```
 Klasa Main:
 static int lc;
 static int lp;
@@ -158,6 +160,7 @@ public static int wczytajLiczbe(String komunikat) {
         }
     }
 }
+```
 Metoda wczytajLiczbe przyjmuje komunikat jako argument i prosi użytkownika o wprowadzenie liczby. Jeśli wprowadzona wartość nie jest liczbą całkowitą nieujemną, program pyta użytkownika ponownie. Metoda ta jest wykorzystywana do wczytania liczby pisarzy i czytelników.
 
 
@@ -190,7 +193,7 @@ Java wczytuje plik JAR i uruchamia aplikację zdefiniowaną w pliku manifestu. D
 uruchamiać aplikacje jako jedno samodzielne archiwum JAR.
 
 
-
+```
 public void finishWrite(String writerName){
     writeSemaphore.release();
     readSemaphore.release(5);
@@ -213,6 +216,7 @@ public void requestWrite(String writerName) throws InterruptedException {
     readSemaphore.acquire(5);
     writersCount++;
 }
+```
 W skrócie, requestWrite() służy do rezerwowania dostępu do operacji pisania w bibliotece dla danego pisarza. Jeśli dostęp jest możliwy
 (czyli są dostępne zezwolenia semaforów), wątek pisarza uzyskuje zezwolenie, blokuje dostęp dla czytelników, a licznik pisarzy jest inkrementowany, co oznacza, że jeden pisarz więcej korzysta z biblioteki.
 Jeśli nie ma dostępnych zezwoleń, wątek zostanie zablokowany do momentu, gdy zezwolenia będą dostępne do użycia.
